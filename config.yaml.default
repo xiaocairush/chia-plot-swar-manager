@@ -177,8 +177,8 @@ jobs:
 
   - name: plot_e
     max_plots: 999
-    farmer_public_key: ae707424f4cf36374dcb5bc94bbd0a78716b7c2d626a9edee594110cedd69d887463850922106a514d95151c3ae15c1f
-    pool_public_key: af93729e8b5ce47698f46dc494cc72a89dd5de7b3521f9d42c89db91a8a2b41e4f930e9410f5962e6109b28fe9e17ec0
+    farmer_public_key: xxxxx
+    pool_public_key: xxxxx
     temporary_directory: E:\
     temporary2_directory: E:\
     destination_directory: H:\
