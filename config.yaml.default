@@ -4,7 +4,7 @@
 #   LINUX EXAMPLE: /usr/lib/chia-blockchain/resources/app.asar.unpacked/daemon/chia
 #  LINUX2 EXAMPLE: /home/swar/chia-blockchain/venv/bin/chia
 #  MAC OS EXAMPLE: /Applications/Chia.app/Contents/Resources/app.asar.unpacked/daemon/chia
-chia_location:
+chia_location: C:\Users\berg\Desktop\chia-plotter\chia_plot.exe
 
 
 manager:
@@ -13,13 +13,13 @@ manager:
   # check_interval: The number of seconds to wait before checking to see if a new job should start.
   #      log_level: Keep this on ERROR to only record when there are errors. Change this to INFO in order to see more
   #                 detailed logging. Warning: INFO will write a lot of information.
-  check_interval: 60
+  check_interval: 30
   log_level: ERROR
 
 
 log:
   # folder_path: This is the folder where your log files for plots will be saved.
-  folder_path: S:\Chia\Logs\Plotter
+  folder_path: c:\chia-mutithread\log\
 
 
 view:
@@ -33,9 +33,9 @@ view:
   #               include_cpu: This dictates whether the CPU information will be showed.
   #               include_ram: This dictates whether the RAM information will be showed.
   #        include_plot_stats: This dictates whether the plot stats will be showed.
-  check_interval: 60
+  check_interval: 30
   datetime_format: "%Y-%m-%d %H:%M:%S"
-  include_seconds_for_phase: false
+  include_seconds_for_phase: true
   include_drive_info: true
   include_cpu: true
   include_ram: true
@@ -86,14 +86,14 @@ progress:
   #                 information with the existing log file to calculate a progress percent.
   #   phase_weight: These are the weight to assign to each phase in the progress calculations. Typically, Phase 1 and 3
   #                 are the longest phases so they will hold more weight than the others.
-  phase1_line_end: 801
-  phase2_line_end: 834
-  phase3_line_end: 2474
-  phase4_line_end: 2620
-  phase1_weight: 33.4
-  phase2_weight: 20.43
-  phase3_weight: 42.29
-  phase4_weight: 3.88
+  phase1_line_end: 18
+  phase2_line_end: 32
+  phase3_line_end: 46
+  phase4_line_end: 51
+  phase1_weight: 28.32
+  phase2_weight: 30.08
+  phase3_weight: 36.42
+  phase4_weight: 5.18
 
 
 global:
@@ -105,9 +105,9 @@ global:
   # minimum_minutes_between_jobs: The minimum number of minutes before starting a new plotting job, this prevents
   #                               multiple jobs from starting at the exact same time. This will alleviate congestion
   #                               on destination drive. Set to 0 to disable.
-  max_concurrent: 10
-  max_for_phase_1: 3
-  minimum_minutes_between_jobs: 5
+  max_concurrent: 4
+  max_for_phase_1: 1
+  minimum_minutes_between_jobs: 25
 
 
 jobs:
@@ -174,24 +174,22 @@ jobs:
   #        cpu_affinity: List of cpu (or threads) to allocate for plot processes. The default example assumes you have
   #                      a hyper-threaded 4 core CPU (8 logical cores). This config will restrict plot processes to use
   #                      logical cores 0-5, leaving logical cores 6 and 7 for other processes (6 restricted, 2 free).
-  - name: micron
+
+  - name: plot_e
     max_plots: 999
-    farmer_public_key:
-    pool_public_key:
-    temporary_directory: Z:\Plotter
-    temporary2_directory:
-    destination_directory: J:\Plots
-    size: 32
-    bitfield: true
-    threads: 8
+    farmer_public_key: ae707424f4cf36374dcb5bc94bbd0a78716b7c2d626a9edee594110cedd69d887463850922106a514d95151c3ae15c1f
+    pool_public_key: af93729e8b5ce47698f46dc494cc72a89dd5de7b3521f9d42c89db91a8a2b41e4f930e9410f5962e6109b28fe9e17ec0
+    temporary_directory: E:\
+    temporary2_directory: E:\
+    destination_directory: H:\
+    threads: 5
     buckets: 128
-    memory_buffer: 4000
-    max_concurrent: 6
-    max_concurrent_with_start_early: 7
+    max_concurrent: 1
+    max_concurrent_with_start_early: 2
     initial_delay_minutes: 0
-    stagger_minutes: 60
-    max_for_phase_1: 2
-    concurrency_start_early_phase: 4
+    stagger_minutes: 25
+    max_for_phase_1: 1
+    concurrency_start_early_phase: 5
     concurrency_start_early_phase_delay: 0
     temporary2_destination_sync: false
     exclude_final_directory: false
@@ -200,36 +198,3 @@ jobs:
     windows_process_priority: 32
     enable_cpu_affinity: false
     cpu_affinity: [ 0, 1, 2, 3, 4, 5 ]
-
-  - name: inland
-    max_plots: 999
-    farmer_public_key:
-    pool_public_key:
-    temporary_directory:
-      - Y:\Plotter1
-      - Y:\Plotter2
-    temporary2_directory:
-      - J:\Plots
-      - K:\Plots
-    destination_directory:
-      - J:\Plots
-      - K:\Plots
-    size: 32
-    bitfield: true
-    threads: 8
-    buckets: 128
-    memory_buffer: 4000
-    max_concurrent: 2
-    max_concurrent_with_start_early: 3
-    initial_delay_minutes: 0
-    stagger_minutes: 180
-    max_for_phase_1: 1
-    concurrency_start_early_phase: 4
-    concurrency_start_early_phase_delay: 0
-    temporary2_destination_sync: false
-    exclude_final_directory: false
-    skip_full_destinations: true
-    unix_process_priority: 10
-    windows_process_priority: 32
-    enable_cpu_affinity: false
-    cpu_affinity: [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ]
