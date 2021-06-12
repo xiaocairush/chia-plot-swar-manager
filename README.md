@@ -3,7 +3,7 @@
 #### A plot manager for chia-plotter: https://github.com/madMAx43v3r/chia-plotter
 [English](README.md) / [Русский](README.RU.md)
 
-**Important**: If you are using chia_plot.exe in windows, please make sure your chia_plot.exe latest version, you can download the latest chia_plot.exe file at [here](https://github.com/stotiks/chia-plotter/releases).
+**Important**: If you are using chia_plot.exe in windows, please make sure that your chia_plot.exe is latest version, you can download the latest chia_plot.exe file at [here](https://github.com/stotiks/chia-plotter/releases).
 
 ![The view of the manager](https://i.imgur.com/hIhjXt0.png "View")
 
