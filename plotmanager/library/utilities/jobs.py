@@ -140,7 +140,7 @@ def load_jobs(config_jobs):
 
 
 def determine_job_size(k_size):
-    return 32
+    return 109000000000
 
 
 def monitor_jobs_to_start(jobs, running_work, max_concurrent, max_for_phase_1, next_job_work, chia_location,
