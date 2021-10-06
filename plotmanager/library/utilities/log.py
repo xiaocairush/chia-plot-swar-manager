@@ -16,7 +16,7 @@ def get_log_file_name(log_directory, job, datetime):
 
 
 def _analyze_log_end_date(file_path, contents):
-    match = re.search(r'Total plot creation time was ([\d\.]+) sec\n', contents, flags=re.I)
+    match = re.search(r'Total plot creation time was ([\d\.]+) sec.*\n', contents, flags=re.I)
     if not match:
         return False
     total_seconds = match.groups()[0]

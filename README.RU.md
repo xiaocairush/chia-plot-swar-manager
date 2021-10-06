@@ -1,6 +1,6 @@
 # Swar's Chia Plot Manager 
 
-#### Plot Manager для засева Chia: https://www.chia.net/
+#### Plot Manager для засева chia-plotter: https://github.com/madMAx43v3r/chia-plotter
 [English](README.md) / [Русский](README.RU.md)
 
 ![The view of the manager](https://i.imgur.com/hIhjXt0.png "View")

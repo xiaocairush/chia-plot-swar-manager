@@ -3,7 +3,7 @@ class Job:
     current_work_id = 0
 
     farmer_public_key = None
-    pool_public_key = None
+    contract_address = None
 
     total_running = 0
     total_kicked_off = 0
